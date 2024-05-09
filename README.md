@@ -21,8 +21,7 @@ actor HelloCycles {
 
   public func transfer(
     receiver: shared() -> async (),
-    amount: Nat
-  ): async {refunded : Nat}{
+    amount: Nat): async {refunded : Nat}{
     Cycles.add(amount);
     await receiver();
     {refunded = Cycles.refunded()};
